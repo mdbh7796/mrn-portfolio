@@ -19,3 +19,6 @@ mongodb-data/
 
 # Vercel CLI link metadata (per-machine, never commit)
 .vercel/
+
+.vercel
+.env*
