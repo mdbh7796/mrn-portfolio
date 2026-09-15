@@ -1,0 +1,12 @@
+{
+  "name": "mrn-portfolio",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Portfolio monorepo: Vite frontend (client/) + Vercel serverless API (api/) + local Express dev server (server/)",
+  "scripts": {
+    "build": "npm run build --prefix client"
+  },
+  "dependencies": {
+    "mongoose": "^8.4.0"
+  }
+}
