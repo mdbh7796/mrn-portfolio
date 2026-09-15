@@ -1,6 +1,7 @@
 const express = require('express');
 const rateLimit = require('express-rate-limit');
 const ContactSubmission = require('../models/ContactSubmission');
+const { notifyContact } = require('../lib/notify');
 
 const router = express.Router();
 
@@ -20,17 +21,23 @@ function validateContact({ name, email, message }) {
   return null;
 }
 
-router.post('/', contactLimiter, async (req, res) => {
-  const error = validateContact(req.body || {});
-  if (error) return res.status(400).json({ error });
+router.post('/', contactLimiter, async (req, res, next) => {
+  try {
+    const error = validateContact(req.body || {});
+    if (error) return res.status(400).json({ error });
 
-  const { name, email, message } = req.body;
-  const doc = await ContactSubmission.create({
-    name: name.trim(),
-    email: email.trim().toLowerCase(),
-    message: message.trim()
-  });
-  res.status(201).json({ ok: true, id: doc._id });
+    const { name, email, message } = req.body;
+    const doc = await ContactSubmission.create({
+      name: name.trim(),
+      email: email.trim().toLowerCase(),
+      message: message.trim()
+    });
+    // Best-effort email — never blocks the 201, never throws (see lib/notify).
+    const emailed = await notifyContact({ name: doc.name, email: doc.email, message: doc.message });
+    res.status(201).json({ ok: true, id: doc._id, emailed });
+  } catch (err) {
+    next(err);
+  }
 });
 
 module.exports = router;

@@ -1,5 +1,6 @@
 const db = require('./_db');
 const ContactSubmission = require('../server/models/ContactSubmission');
+const { notifyContact } = require('../server/lib/notify');
 
 // Best-effort per-instance throttle (serverless instances don't share memory,
 // but this still blunts naive spam without any paid service).
@@ -39,7 +40,9 @@ module.exports = async (req, res) => {
       email: email.trim().toLowerCase(),
       message: message.trim()
     });
-    return res.status(201).json({ ok: true, id: doc._id });
+    // Best-effort email — never blocks the 201, never throws (see lib/notify).
+    const emailed = await notifyContact({ name: doc.name, email: doc.email, message: doc.message });
+    return res.status(201).json({ ok: true, id: doc._id, emailed });
   } catch (err) {
     console.error(err);
     return res.status(500).json({ error: 'Server error' });
