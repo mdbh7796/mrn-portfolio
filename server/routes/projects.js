@@ -4,18 +4,26 @@ const Project = require('../models/Project');
 const router = express.Router();
 
 // GET /api/projects — list, featured first
-router.get('/', async (req, res) => {
-  const projects = await Project.find().sort({ featured: -1, order: 1 }).lean();
-  res.set('Cache-Control', 'public, max-age=60');
-  res.json(projects);
+router.get('/', async (req, res, next) => {
+  try {
+    const projects = await Project.find().sort({ featured: -1, order: 1 }).lean();
+    res.set('Cache-Control', 'public, max-age=60');
+    res.json(projects);
+  } catch (err) {
+    next(err);
+  }
 });
 
 // GET /api/projects/:slug — detail by stable slug
-router.get('/:slug', async (req, res) => {
-  const project = await Project.findOne({ slug: req.params.slug }).lean();
-  if (!project) return res.status(404).json({ error: 'Project not found' });
-  res.set('Cache-Control', 'public, max-age=60');
-  res.json(project);
+router.get('/:slug', async (req, res, next) => {
+  try {
+    const project = await Project.findOne({ slug: req.params.slug }).lean();
+    if (!project) return res.status(404).json({ error: 'Project not found' });
+    res.set('Cache-Control', 'public, max-age=60');
+    res.json(project);
+  } catch (err) {
+    next(err);
+  }
 });
 
 module.exports = router;

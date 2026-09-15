@@ -13,6 +13,9 @@ if (!cached) cached = global._mongooseConn = { conn: null, promise: null };
 async function db() {
   if (cached.conn) return cached.conn;
   if (!cached.promise) {
+    if (!process.env.MONGO_URI) {
+      throw new Error('MONGO_URI is not set (Vercel > Settings > Environment Variables)');
+    }
     cached.promise = mongoose.connect(process.env.MONGO_URI).then((m) => m);
   }
   cached.conn = await cached.promise;

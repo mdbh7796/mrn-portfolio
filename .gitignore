@@ -16,3 +16,6 @@ Thumbs.db
 
 # Local MongoDB data (if ever placed in repo)
 mongodb-data/
+
+# Vercel CLI link metadata (per-machine, never commit)
+.vercel/
