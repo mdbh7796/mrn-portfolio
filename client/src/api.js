@@ -1,6 +1,8 @@
-// In production (Vercel) the API is same-origin under /api, so an empty
-// VITE_API_URL means relative fetches. Locally, client/.env sets localhost:5000.
-const API_URL = import.meta.env.VITE_API_URL ?? '';
+// In production (Vercel) the API is same-origin under /api. Never allow a
+// localhost value to be baked into a production bundle by mistake.
+const configuredApiUrl = import.meta.env.VITE_API_URL ?? '';
+const isLocalhostUrl = /^https?:\/\/(localhost|127(?:\.\d{1,3}){3})(?::\d+)?\/?$/i.test(configuredApiUrl);
+const API_URL = import.meta.env.PROD && isLocalhostUrl ? '' : configuredApiUrl;
 
 async function handle(res) {
   if (!res.ok) {
