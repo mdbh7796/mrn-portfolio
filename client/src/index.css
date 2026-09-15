@@ -339,6 +339,37 @@ a { color: var(--md-sys-color-primary); }
 /* Detail page media */
 .detail-media { border-radius: var(--shape-lg); max-width: 100%; border: 1px solid var(--md-sys-color-outline-variant); }
 
+/* Card image fallback (seed projects have no imageUrl yet) */
+.card-media-fallback {
+  aspect-ratio: 16 / 9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Roboto Flex", "Roboto", system-ui, sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  background: linear-gradient(135deg, var(--md-sys-color-primary-container), var(--md-sys-color-secondary-container));
+  color: var(--md-sys-color-on-primary-container);
+}
+
+/* Loading skeletons */
+.skeleton {
+  border-radius: var(--shape-sm);
+  background: linear-gradient(90deg, var(--md-sys-color-surface-container-high) 25%, var(--md-sys-color-surface-container-highest) 50%, var(--md-sys-color-surface-container-high) 75%);
+  background-size: 200% 100%;
+  animation: skeleton-shimmer 1.2s ease-in-out infinite;
+}
+.skeleton-media { aspect-ratio: 16 / 9; width: 100%; }
+.skeleton-line { height: 1rem; margin: 0.5rem 0; }
+@keyframes skeleton-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .skeleton { animation: none; }
+}
+
 @media (max-width: 600px) {
   .nav-link span:last-child { display: none; }
   .nav-link { padding: 0.6rem 0.75rem; }

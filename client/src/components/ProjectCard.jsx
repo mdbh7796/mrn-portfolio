@@ -1,9 +1,24 @@
 import { Link } from 'react-router-dom';
 
+function initials(title) {
+  return (title || '?')
+    .split(/\s+/)
+    .map((w) => w[0])
+    .slice(0, 2)
+    .join('')
+    .toUpperCase();
+}
+
 export function ProjectCard({ project }) {
   return (
     <article className="card">
-      {project.imageUrl && <img src={project.imageUrl} alt={project.title} loading="lazy" />}
+      {project.imageUrl ? (
+        <img src={project.imageUrl} alt={project.title} loading="lazy" />
+      ) : (
+        <div className="card-media-fallback" aria-hidden="true">
+          {initials(project.title)}
+        </div>
+      )}
       <div className="card-body">
         <h3>{project.title}</h3>
         <p>{project.summary}</p>

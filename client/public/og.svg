@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" rx="0" fill="#EADDFF"/>
+  <rect x="80" y="140" width="1040" height="350" rx="28" fill="#FEF7FF" stroke="#CAC4D0" stroke-width="2"/>
+  <text x="140" y="260" font-family="Roboto, Arial, sans-serif" font-size="72" font-weight="700" fill="#4F378B">Mohamed Bougarch</text>
+  <text x="140" y="330" font-family="Roboto, Arial, sans-serif" font-size="36" font-weight="500" fill="#1D1B20">Python · Django · C# &amp; .NET — with React + MERN</text>
+  <text x="140" y="390" font-family="Roboto, Arial, sans-serif" font-size="28" fill="#49454F">Tinghir, Morocco · Desktop + Web apps · Open to junior roles</text>
+</svg>

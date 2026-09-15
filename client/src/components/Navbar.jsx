@@ -10,7 +10,7 @@ export default function Navbar({ theme, onToggleTheme }) {
   return (
     <nav className="nav">
       <Link to="/" className="brand">
-        MRN Portfolio
+        Mohamed Bougarch
       </Link>
       <div className="links">
         {TABS.map((t) => (
@@ -40,7 +40,36 @@ export default function Navbar({ theme, onToggleTheme }) {
 export function Footer() {
   return (
     <footer className="footer">
-      Mohamed Bougarch · {new Date().getFullYear()} · React + Express + MongoDB · Material 3
+      <div>Mohamed Bougarch · {new Date().getFullYear()} · Tinghir, Morocco</div>
+      <div style={{ marginTop: '0.5rem', display: 'flex', gap: '0.25rem', justifyContent: 'center' }}>
+        <a
+          className="btn btn-text"
+          href="https://github.com/mdbh7796"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Mohamed Bougarch on GitHub"
+        >
+          <span className="msr" aria-hidden="true">
+            code
+          </span>
+          GitHub
+        </a>
+        <a
+          className="btn btn-text"
+          href="https://www.linkedin.com/in/mdbh7/"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Mohamed Bougarch on LinkedIn"
+        >
+          <span className="msr" aria-hidden="true">
+            business_center
+          </span>
+          LinkedIn
+        </a>
+      </div>
+      <div className="muted" style={{ marginTop: '0.5rem', fontSize: '0.8rem' }}>
+        Python · Django · C# & .NET · React + MERN · Material 3
+      </div>
     </footer>
   );
 }

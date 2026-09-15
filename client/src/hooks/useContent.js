@@ -5,33 +5,71 @@ export function useProjects() {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [attempt, setAttempt] = useState(0);
 
   useEffect(() => {
+    let cancelled = false;
     api
       .listProjects()
-      .then(setData)
-      .catch((e) => setError(e.message))
-      .finally(() => setLoading(false));
-  }, []);
+      .then((d) => {
+        if (cancelled) return;
+        setData(d);
+        setError('');
+      })
+      .catch((e) => {
+        if (!cancelled) setError(e.message);
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [attempt]);
 
-  return { data, loading, error };
+  const retry = () => {
+    setLoading(true);
+    setError('');
+    setAttempt((a) => a + 1);
+  };
+
+  return { data, loading, error, retry };
 }
 
 export function useProject(slug) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [attempt, setAttempt] = useState(0);
 
   useEffect(() => {
     if (!slug) return;
+    let cancelled = false;
     api
       .getProject(slug)
-      .then(setData)
-      .catch((e) => setError(e.message))
-      .finally(() => setLoading(false));
-  }, [slug]);
+      .then((d) => {
+        if (cancelled) return;
+        setData(d);
+        setError('');
+      })
+      .catch((e) => {
+        if (!cancelled) setError(e.message);
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [slug, attempt]);
 
-  return { data, loading, error };
+  const retry = () => {
+    setLoading(true);
+    setError('');
+    setAttempt((a) => a + 1);
+  };
+
+  return { data, loading, error, retry };
 }
 
 export function useAbout() {
@@ -39,16 +77,33 @@ export function useAbout() {
   const [skills, setSkills] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
+  const [attempt, setAttempt] = useState(0);
 
   useEffect(() => {
+    let cancelled = false;
     Promise.all([api.getAbout(), api.listSkills()])
       .then(([a, s]) => {
+        if (cancelled) return;
         setAbout(a);
         setSkills(s);
+        setError('');
       })
-      .catch((e) => setError(e.message))
-      .finally(() => setLoading(false));
-  }, []);
+      .catch((e) => {
+        if (!cancelled) setError(e.message);
+      })
+      .finally(() => {
+        if (!cancelled) setLoading(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [attempt]);
 
-  return { about, skills, loading, error };
+  const retry = () => {
+    setLoading(true);
+    setError('');
+    setAttempt((a) => a + 1);
+  };
+
+  return { about, skills, loading, error, retry };
 }

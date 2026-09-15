@@ -1,0 +1,81 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> /Contents 4 0 R >>
+endobj
+4 0 obj
+<< /Length 1931 >>
+stream
+BT
+/F2 20 Tf 50 770 Td (Mohamed Bougarch) Tj
+0 0 Td
+/F1 11 Tf 50 745 Td (Full-stack Developer -- Python, Django, C# & .NET, with React + MERN) Tj
+0 0 Td
+/F1 11 Tf 50 729 Td (Tinghir, Draa-Tafilalet, Morocco | github.com/mdbh7796 | linkedin.com/in/mdbh7/) Tj
+0 0 Td
+/F2 13 Tf 50 700 Td (Summary) Tj
+0 0 Td
+/F1 11 Tf 50 682 Td (Full-stack developer trained at Web4Jobs / Tinghir Coding Center. Builds desktop) Tj
+0 0 Td
+/F1 11 Tf 50 666 Td (and web apps with Python, Django, C#, and JavaScript: WinUI package-manager GUI,) Tj
+0 0 Td
+/F1 11 Tf 50 650 Td (PyQt point-of-sale, Django forums, and React front-ends.) Tj
+0 0 Td
+/F2 13 Tf 50 621 Td (Skills \(primary / secondary\)) Tj
+0 0 Td
+/F1 11 Tf 50 603 Td (Primary: Python, C#, Django, .NET 8, PyQt6, WinUI 3, HTML/CSS) Tj
+0 0 Td
+/F1 11 Tf 50 587 Td (Secondary: JavaScript, React + MERN \(Express, MongoDB\), Tailwind CSS) Tj
+0 0 Td
+/F2 13 Tf 50 558 Td (Projects) Tj
+0 0 Td
+/F2 11 Tf 50 540 Td (WinGet Store -- C#, WinUI 3, .NET 8) Tj
+0 0 Td
+/F1 11 Tf 50 524 Td (Modern WinUI 3 GUI for Windows Package Manager: discover, install, update, history.) Tj
+0 0 Td
+/F2 11 Tf 50 508 Td (Modern POS System -- Python, PyQt6, Matplotlib) Tj
+0 0 Td
+/F1 11 Tf 50 492 Td (Dark-themed POS with inventory, loyalty, multi-currency, sales analytics. Offline-first.) Tj
+0 0 Td
+/F2 11 Tf 50 476 Td (Tineghir City -- HTML, Tailwind CSS, JavaScript) Tj
+0 0 Td
+/F1 11 Tf 50 460 Td (Responsive static tourism site for Tineghir, Morocco. Zero hosting cost.) Tj
+0 0 Td
+/F2 11 Tf 50 444 Td (MarForum -- Python, Django, HTML) Tj
+0 0 Td
+/F1 11 Tf 50 428 Td (Self-hosted Django community forum with deploy-ready config.) Tj
+0 0 Td
+/F2 13 Tf 50 399 Td (Certifications \(Web4Jobs\)) Tj
+0 0 Td
+/F1 11 Tf 50 381 Td (Responsive Web Design; Front End Development Libraries; Passeport Numerique; Tronc Commun) Tj
+0 0 Td
+/F1 10 Tf 50 352 Td (Generated from portfolio seed data. Contact via site contact form.) Tj
+0 0 Td
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000251 00000 n 
+0000002234 00000 n 
+0000002304 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+2379
+%%EOF

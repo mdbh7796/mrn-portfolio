@@ -14,6 +14,20 @@ function getInitialTheme() {
   return window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
 }
 
+function useCanonical() {
+  useEffect(() => {
+    // Runtime canonical avoids Vite build-html resolving a static href="/"
+    // (EISDIR) and stays correct on any domain (localhost, preview, prod).
+    let link = document.querySelector('link[rel="canonical"]');
+    if (!link) {
+      link = document.createElement('link');
+      link.setAttribute('rel', 'canonical');
+      document.head.appendChild(link);
+    }
+    link.setAttribute('href', window.location.origin + window.location.pathname);
+  }, []);
+}
+
 export default function App() {
   const [theme, setTheme] = useState(getInitialTheme);
 
@@ -21,6 +35,8 @@ export default function App() {
     document.documentElement.dataset.theme = theme;
     localStorage.setItem('mrn-theme', theme);
   }, [theme]);
+
+  useCanonical();
 
   return (
     <BrowserRouter>

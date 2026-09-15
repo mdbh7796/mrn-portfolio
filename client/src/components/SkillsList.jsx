@@ -1,5 +1,5 @@
 export default function SkillsList({ skills }) {
-  if (!skills.length) return <p>No skills listed.</p>;
+  if (!skills?.length) return <p className="body">No skills listed yet.</p>;
   const groups = skills.reduce((acc, s) => {
     (acc[s.category || 'Tools'] ||= []).push(s);
     return acc;

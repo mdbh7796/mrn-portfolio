@@ -44,8 +44,12 @@ export default function ContactForm() {
           {status.loading ? 'Sending…' : 'Send message'}
         </button>
       </div>
-      {status.error && <p className="error">{status.error}</p>}
-      {status.success && <p className="success">Thanks — message saved!</p>}
+      {status.error && (
+        <p className="error" role="alert">
+          Couldn&apos;t send your message ({status.error}). Check your connection and try again.
+        </p>
+      )}
+      {status.success && <p className="success">Thanks — your message was received. I&apos;ll get back to you soon.</p>}
     </form>
   );
 }

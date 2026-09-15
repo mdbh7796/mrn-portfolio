@@ -2,9 +2,28 @@ import { useAbout } from '../hooks/useContent';
 import SkillsList from '../components/SkillsList';
 
 export default function About() {
-  const { about, skills, loading, error } = useAbout();
-  if (loading) return <p>Loading…</p>;
-  if (error) return <p className="error">{error} (is the API running?)</p>;
+  const { about, skills, loading, error, retry } = useAbout();
+  if (loading)
+    return (
+      <section aria-label="Loading about">
+        <div className="skeleton skeleton-line" style={{ width: '40%', height: '2rem' }} />
+        <div className="skeleton skeleton-line" style={{ width: '70%' }} />
+        <div className="skeleton skeleton-line" style={{ width: '90%' }} />
+        <div className="skeleton skeleton-line" style={{ width: '60%' }} />
+      </section>
+    );
+  if (error)
+    return (
+      <div className="error" role="alert">
+        <p style={{ margin: '0 0 0.5rem' }}>Couldn&apos;t load profile. Check your connection and try again.</p>
+        <button type="button" className="btn btn-tonal" onClick={retry}>
+          <span className="msr" aria-hidden="true">
+            refresh
+          </span>
+          Try again
+        </button>
+      </div>
+    );
   return (
     <section>
       {about?.name && <h1 className="display" style={{ fontSize: '2rem', lineHeight: '2.5rem', marginBottom: 0 }}>{about.name}</h1>}
@@ -56,6 +75,12 @@ export default function About() {
               LinkedIn
             </a>
           )}
+          <a href={about.links.resume || '/resume.pdf'} className="btn btn-filled">
+            <span className="msr" aria-hidden="true">
+              download
+            </span>
+            Download CV
+          </a>
         </p>
       )}
     </section>

@@ -73,10 +73,10 @@ const skills = [
 
 const about = {
   name: 'Mohamed Bougarch',
-  headline: 'Full Stack Web Developer',
-  bio: 'Full Stack web developer based in Tinghir, Morocco, working at the intersection of logic and design. Trained at the Web4Jobs / Tinghir Coding Center, I build desktop and web apps with Python, Django, C#, and JavaScript — from a WinUI package manager GUI to Django community forums.',
+  headline: 'Full-stack Developer — Python, Django, C# & .NET, with React + MERN',
+  bio: 'Full-stack developer based in Tinghir, Morocco, working at the intersection of logic and design. Trained at the Web4Jobs / Tinghir Coding Center, I build desktop and web apps with Python, Django, C#, and JavaScript — from a WinUI package manager GUI to Django community forums.',
   location: 'Tinghir, Drâa-Tafilalet, Morocco',
-  links: { github: 'https://github.com/mdbh7796', linkedin: 'https://www.linkedin.com/in/mdbh7/', resume: '' },
+  links: { github: 'https://github.com/mdbh7796', linkedin: 'https://www.linkedin.com/in/mdbh7/', resume: '/resume.pdf' },
   skillsHighlight: ['Python', 'C#', 'Django'],
   certifications: [
     { name: 'Responsive Web Design', issuer: 'Web4Jobs' },
