@@ -1,0 +1,17 @@
+# Render Blueprint — deploys the Express API from ./server
+# Usage: Render Dashboard → New → Blueprint → select mrn-portfolio repo,
+# then fill in MONGO_URI + CLIENT_URL when prompted.
+services:
+  - type: web
+    name: mrn-portfolio-api
+    runtime: node
+    rootDir: server
+    buildCommand: npm install
+    startCommand: node server.js
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: MONGO_URI
+        sync: false # paste Atlas URI: mongodb+srv://mdbh:<password>@cluster0.r2qewf2.mongodb.net/mrn_portfolio?appName=Cluster0
+      - key: CLIENT_URL
+        sync: false # paste Vercel URL later, e.g. https://mrn-portfolio.vercel.app
