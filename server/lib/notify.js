@@ -22,11 +22,11 @@ function getTransporter() {
 }
 
 async function notifyContact({ name, email, message }) {
-  const to = process.env.CONTACT_TO;
+  const to = process.env.CONTACT_TO || 'mdbhking@gmail.com';
   const transport = getTransporter();
   if (!transport || !to) return false;
 
-  const from = process.env.GMAIL_USER;
+  const from = process.env.GMAIL_USER || 'mdbhking@gmail.com';
   try {
     await transport.sendMail({
       from: `Portfolio <${from}>`,

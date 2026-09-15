@@ -40,7 +40,7 @@ export default function Projects() {
     <section>
       <h1 className="display" style={{ fontSize: '2rem', lineHeight: '2.5rem' }}>Projects</h1>
       <p className="body" style={{ marginTop: 0 }}>
-        Desktop apps with Python & C#, web apps with Django & React — problem, solution, and outcome for each.
+        A mix of product thinking, clean architecture, and practical problem-solving — from desktop workflows to web apps that people actually use.
       </p>
       <ProjectGrid projects={data} />
     </section>

@@ -228,16 +228,157 @@ a { color: var(--md-sys-color-primary); }
 /* ── Hero ─────────────────────────────────────────────────────── */
 
 .hero {
-  background: var(--md-sys-color-primary-container);
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(220px, 0.9fr);
+  gap: 1.5rem;
+  align-items: center;
+  background: linear-gradient(135deg, var(--md-sys-color-primary-container), color-mix(in srgb, var(--md-sys-color-primary-container) 78%, var(--md-sys-color-surface) 22%));
   color: var(--md-sys-color-on-primary-container);
   border-radius: var(--shape-xl);
   padding: clamp(1.75rem, 5vw, 3rem);
   margin: 1rem 0 2rem;
+  border: 1px solid color-mix(in srgb, var(--md-sys-color-primary) 20%, transparent);
+}
+.hero-copy { display: grid; gap: 0.5rem; }
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0;
+  font-weight: 500;
+  letter-spacing: 0.01em;
 }
 .hero .body { color: var(--md-sys-color-on-primary-container); opacity: 0.85; }
 .hero-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.25rem; }
 .hero .btn-filled { background: var(--md-sys-color-primary); color: var(--md-sys-color-on-primary); }
 .hero .btn-tonal { background: color-mix(in srgb, var(--md-sys-color-on-primary-container) 12%, transparent); color: var(--md-sys-color-on-primary-container); }
+.hero-panel {
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--shape-lg);
+  padding: 1rem 1.1rem;
+  backdrop-filter: blur(2px);
+}
+.panel-label {
+  margin: 0 0 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+.value-points {
+  list-style: none;
+  display: grid;
+  gap: 0.8rem;
+  margin: 0;
+  padding: 0;
+}
+.value-points li {
+  position: relative;
+  padding-left: 1.6rem;
+  line-height: 1.4;
+  font-weight: 500;
+}
+.value-points li::before {
+  content: "check";
+  font-family: "Material Symbols Rounded", sans-serif;
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 1rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin: -1rem 0 2rem;
+}
+.stat-card {
+  display: grid;
+  gap: 0.35rem;
+  background: var(--md-sys-color-surface-container-low);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--shape-lg);
+  padding: 1rem 1.1rem;
+  box-shadow: var(--elev-1);
+}
+.stat-card .msr {
+  color: var(--md-sys-color-primary);
+  font-size: 1.25rem;
+}
+.stat-card strong {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+.stat-card span:last-child {
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 0.9rem;
+}
+
+.section-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 0.8fr);
+  gap: 1.25rem;
+  align-items: center;
+  background: var(--md-sys-color-surface-container-low);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--shape-xl);
+  padding: clamp(1.25rem, 2.5vw, 2rem);
+  margin: 0 0 2rem;
+}
+
+.services-section {
+  margin: 0 0 2rem;
+}
+.section-heading-row {
+  margin-bottom: 1rem;
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+.service-card {
+  background: var(--md-sys-color-surface-container-low);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  border-radius: var(--shape-lg);
+  padding: 1.25rem;
+  display: grid;
+  gap: 0.75rem;
+}
+.service-card .msr {
+  color: var(--md-sys-color-primary);
+  font-size: 2rem;
+}
+.service-card h3 {
+  margin: 0;
+  font-size: 1.125rem;
+}
+.service-card p {
+  margin: 0;
+  color: var(--md-sys-color-on-surface-variant);
+  line-height: 1.5;
+}
+
+.cta-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+  border: 1px solid color-mix(in srgb, var(--md-sys-color-primary) 20%, transparent);
+  border-radius: var(--shape-xl);
+  padding: clamp(1.25rem, 2vw, 1.75rem);
+  margin: 0 0 2rem;
+}
+.contact-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
 
 /* ── M3 cards ─────────────────────────────────────────────────── */
 
@@ -374,4 +515,7 @@ a { color: var(--md-sys-color-primary); }
   .nav-link span:last-child { display: none; }
   .nav-link { padding: 0.6rem 0.75rem; }
   .display { font-size: 2.25rem; }
+  .hero, .section-panel, .services-grid { grid-template-columns: 1fr; }
+  .stats-grid { grid-template-columns: 1fr; margin-top: 0; }
+  .cta-banner { flex-direction: column; align-items: flex-start; }
 }
