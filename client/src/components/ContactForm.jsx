@@ -32,6 +32,9 @@ export default function ContactForm() {
       <div className="field">
         <label htmlFor="cf-message">Message</label>
         <textarea id="cf-message" name="message" value={form.message} onChange={onChange} required maxLength={2000} rows={5} />
+        <p className="muted" style={{ fontSize: '0.8rem', margin: '0.25rem 0 0', textAlign: 'right' }}>
+          {form.message.length} / 2000
+        </p>
       </div>
       <div>
         <button type="submit" className="btn btn-filled" disabled={status.loading}>

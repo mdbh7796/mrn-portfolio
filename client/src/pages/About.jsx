@@ -39,14 +39,20 @@ export default function About() {
         </>
       )}
       {about?.links && (
-        <p>
+        <p className="hero-actions">
           {about.links.github && (
-            <a href={about.links.github} target="_blank" rel="noreferrer">
+            <a href={about.links.github} target="_blank" rel="noreferrer" className="btn btn-tonal">
+              <span className="msr" aria-hidden="true">
+                code
+              </span>
               GitHub
             </a>
-          )}{' '}
+          )}
           {about.links.linkedin && (
-            <a href={about.links.linkedin} target="_blank" rel="noreferrer">
+            <a href={about.links.linkedin} target="_blank" rel="noreferrer" className="btn btn-tonal">
+              <span className="msr" aria-hidden="true">
+                business_center
+              </span>
               LinkedIn
             </a>
           )}

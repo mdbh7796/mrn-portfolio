@@ -38,5 +38,9 @@ export default function Navbar({ theme, onToggleTheme }) {
 }
 
 export function Footer() {
-  return <footer className="footer">Built with React + Express + MongoDB · Material 3 theme</footer>;
+  return (
+    <footer className="footer">
+      Mohamed Bougarch · {new Date().getFullYear()} · React + Express + MongoDB · Material 3
+    </footer>
+  );
 }
